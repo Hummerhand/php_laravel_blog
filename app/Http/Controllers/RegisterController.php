@@ -29,5 +29,10 @@ class RegisterController extends Controller
         // dd($request->filled('name'));                    Проверяет конкретное поле с формы на заполнение
         // dd($request->missing('name'));                   Проверяет конкретное поле с формы на пропущенность
         
+        if (true) {
+            return redirect()->back()->withInput();
+        }
+
+        return redirect()->route('user');
     }
 }

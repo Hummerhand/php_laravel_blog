@@ -26,8 +26,12 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $title = $request->input('title');
-        $content = $request->input('content');
+        // $title = $request->input('title');
+        // $content = $request->input('content');
+
+        alert(__('Сохранено!'));
+
+        return redirect()->route('user.posts.show', 123);
     }
 
     public function show($post)
@@ -50,15 +54,18 @@ class PostController extends Controller
         return view('user.posts.edit', compact('post'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $post)
     {
         $title = $request->input('title');
         $content = $request->input('content');
+
+        alert(__('Изменено!'));
+        return redirect()->route('user.posts.show', $post);
     }
 
     public function delete($post)
     {
-        return 'Запрос на удаление поста';
+        return redirect()->route('user.posts');
     }
 
     public function like()
