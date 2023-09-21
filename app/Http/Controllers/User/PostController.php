@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,8 +27,23 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        // $title = $request->input('title');
-        // $content = $request->input('content');
+        /*
+        $validatedData = validator($request->all(), [
+                'title' => ['required', 'string', 'max:100'],
+                'content' => ['required', 'string', 'max:10000'],
+        ])->validate();           
+
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string', 'max:10000'],
+        ]);
+        */
+        $validatedData = validate($request->all(), [
+            'title' => ['required', 'string', 'max:100'],
+            'content' => ['required', 'string', 'max:10000'],
+        ]); 
+
+        dd($validatedData);
 
         alert(__('Сохранено!'));
 

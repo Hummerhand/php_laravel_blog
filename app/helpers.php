@@ -16,3 +16,10 @@ if(!function_exists('alert')) {
         session(['alert' => $name]);
     }
 }
+
+if(!function_exists('validate')) {
+    function validate(array $attributes, array $rules)
+    {
+        return validator($attributes, $rules)->validate();
+    }
+}

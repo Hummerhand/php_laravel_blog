@@ -1,5 +1,7 @@
 @props(['post' => null])
 
+<x-errors />
+
 <x-form {{ $attributes }}>
     <x-form-item>
         <x-label required>{{ __(('Название поста')) }}</x-label>
